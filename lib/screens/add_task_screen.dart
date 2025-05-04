@@ -20,18 +20,23 @@ class AddTaskScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
-            'Add Task',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 30,
-              color: Colors.lightBlueAccent,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
           TextField(
             autofocus: true,
             textAlign: TextAlign.center,
+            decoration: InputDecoration(
+              hintText: 'Add a new task',
+              hintStyle: TextStyle(color: Colors.grey),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.cyan),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.cyan.shade700),
+              ),
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+            ),
             onChanged: (value) {
               newTaskTitle = value;
             },
@@ -46,7 +51,7 @@ class AddTaskScreen extends StatelessWidget {
               Navigator.pop(context);
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.lightBlueAccent,
+              backgroundColor: Colors.cyan.shade700,
               padding: const EdgeInsets.symmetric(vertical: 15.0),
             ),
             child: const Text(

@@ -16,26 +16,28 @@ class _TasksScreenState extends State<TasksScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.cyan.shade700,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lightBlue,
-        onPressed: () async {
-          await showModalBottomSheet<String>(
-            backgroundColor: Colors.transparent,
-            context: context,
-            isScrollControlled: true,
-            builder:
-                (context) => SingleChildScrollView(
-                  padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom,
-                  ),
-                  child: AddTaskScreen(),
-                ),
-          );
-        },
-        shape: CircleBorder(),
-        elevation: 5,
-        child: Icon(Icons.add, color: Colors.white),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: Colors.cyan.shade700,
+      //   onPressed: () async {
+      //     await showModalBottomSheet<String>(
+      //       backgroundColor: Colors.transparent,
+      //       context: context,
+      //       isScrollControlled: true,
+      //       builder:
+      //           (context) => SingleChildScrollView(
+      //             padding: EdgeInsets.only(
+      //               bottom: MediaQuery.of(context).viewInsets.bottom,
+      //             ),
+      //             child: AddTaskScreen(),
+      //           ),
+      //     );
+      //   },
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
+      //   ),
+      //   elevation: 5,
+      //   child: Icon(Icons.add, color: Colors.white),
+      // ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -75,16 +77,47 @@ class _TasksScreenState extends State<TasksScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-                    child: Text(
-                      '${Provider.of<TaskData>(context).countTask} Tasks',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.cyan.shade700,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(30, 10, 0, 0),
+                        child: Text(
+                          '${Provider.of<TaskData>(context).countTask} Tasks',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.cyan.shade700,
+                          ),
+                        ),
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 30, 0),
+                        child: FloatingActionButton(
+                          backgroundColor: Colors.cyan.shade700,
+                          onPressed: () async {
+                            await showModalBottomSheet<String>(
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              isScrollControlled: true,
+                              builder:
+                                  (context) => SingleChildScrollView(
+                                    padding: EdgeInsets.only(
+                                      bottom:
+                                          MediaQuery.of(
+                                            context,
+                                          ).viewInsets.bottom,
+                                    ),
+                                    child: AddTaskScreen(),
+                                  ),
+                            );
+                          },
+                          shape: StarBorder(),
+                          elevation: 5,
+                          child: Icon(Icons.add, color: Colors.white),
+                        ),
+                      ),
+                    ],
                   ),
                   Expanded(child: TaskListView()),
                 ],
