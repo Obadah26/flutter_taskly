@@ -22,8 +22,9 @@ class TaskTile extends StatelessWidget {
         newTaskText,
         style: TextStyle(
           color: Colors.black,
-          fontSize: 18,
+          fontSize: 20,
           decoration: isChecked == true ? TextDecoration.lineThrough : null,
+          fontFamily: 'Winky Rough',
         ),
       ),
       leading: Transform.scale(

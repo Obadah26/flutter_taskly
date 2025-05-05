@@ -25,7 +25,10 @@ class AddTaskScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             decoration: InputDecoration(
               hintText: 'Add a new task',
-              hintStyle: TextStyle(color: Colors.grey),
+              hintStyle: TextStyle(
+                color: Colors.grey,
+                fontFamily: 'Winky Rough',
+              ),
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.cyan),
               ),

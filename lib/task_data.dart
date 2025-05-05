@@ -28,4 +28,13 @@ class TaskData extends ChangeNotifier {
     _tasks.remove(task);
     notifyListeners();
   }
+
+  int get completedTaskCount {
+    return _tasks.where((task) => task.isDone).length;
+  }
+
+  double get completionPercentage {
+    if (_tasks.isEmpty) return 0.0;
+    return (completedTaskCount / _tasks.length) * 100;
+  }
 }
